@@ -1,0 +1,13 @@
+builds:
+  - id: git-connector-linux-amd64
+    ldflags: '-extldflags "-lstdc++ -static"'
+    main: ./cmd/git-connector
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
+    goarch:
+      - amd64
+
+archives:
+  - format: binary
