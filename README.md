@@ -20,6 +20,14 @@ And deploy it with:
 ./git-connector --port 9448 --url http://127.0.0.1:9876 --gitlab_user YOUR_USERNAME --gitlab_pwd YOUR_PASSWORD_OR_TOKEN
 ```
 
+Then you can configure a webhook in your SCM platform.
+
+### GitLab webhook api
+
+```text
+http://127.0.0.1:9448/api/v1/gitlab
+```
+
 ## Support SCM
 
 At the most time, this project was used for building some private workflows. So we support GitLab firstly.
