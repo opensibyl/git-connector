@@ -59,6 +59,7 @@ func doUpload(repoId string, revHash string, revRef string, pullUrl string) erro
 	tmpSrcDir, err := os.MkdirTemp("", fmt.Sprintf("sibyl_%s_%s", safeRepoId, revHash))
 	// already existed?
 	if err != nil {
+		logger.Errorf("create tmp dir failed")
 		return err
 	}
 	defer func(path string) {
@@ -84,6 +85,7 @@ func doUpload(repoId string, revHash string, revRef string, pullUrl string) erro
 		},
 	})
 	if err != nil {
+		logger.Errorf("clone failed: %v", err)
 		return err
 	}
 
@@ -95,6 +97,7 @@ func doUpload(repoId string, revHash string, revRef string, pullUrl string) erro
 		Hash: plumbing.NewHash(revHash),
 	})
 	if err != nil {
+		logger.Errorf("checkout failed: %v", err)
 		return err
 	}
 
